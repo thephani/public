@@ -4,178 +4,196 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>My App Hub</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 		<style>
+			/* Updated CSS */
 			:root {
-				--primary: #4f46e5;
-				--secondary: #3b82f6;
-				--accent: #06b6d4;
-				--dark: #1e293b;
-				--light: #f8fafc;
-				--text: #334155;
-				--text-light: #94a3b8;
-				--glass-bg: rgba(255, 255, 255, 0.15);
+				/* VIBRANT & ACCESSIBLE COLOR SCHEME */
+				--primary: #2563eb; /* Blue-600 (Clear & Accessible) */
+				--primary-light: #60a5fa; /* Blue-400 (Softer accent) */
+				--secondary: #10b981; /* Emerald-500 (Fresh & Modern) */
+				--accent: #f59e0b; /* Amber-500 (Warm and Inviting) */
+				--dark: #0f172a; /* Slate-900 (Deep but not harsh) */
+				--light: #f0f9ff; /*  Azure-50 (Light off-white background) */
+				--text: #334155; /* Slate-700 (Great readability) */
+				--text-light: #64748b; /* Slate-500 (Secondary text) */
+				--glass-bg: rgba(255, 255, 255, 0.07);
+				--glass-border: rgba(255, 255, 255, 0.12);
 			}
 
-			* {
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
 				margin: 0;
 				padding: 0;
-				box-sizing: border-box;
-				font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 			}
 
 			html,
 			body {
 				height: 100%;
+				font-family: 'Plus Jakarta Sans', sans-serif;
+				font-size: 16px;
+				line-height: 1.5;
+				color: var(--text);
+				background: var(--light); /* Solid background */
 				display: flex;
 				flex-direction: column;
-				background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
-				color: var(--text);
-				line-height: 1.6;
+				overflow-x: hidden;
+			}
+
+			body::-webkit-scrollbar {
+				width: 8px; /* Thin scrollbar for WebKit browsers */
+			}
+
+			body::-webkit-scrollbar-track {
+				background: #f1f1f1;
+			}
+
+			body::-webkit-scrollbar-thumb {
+				background: var(--primary);
+				border-radius: 4px;
+			}
+
+			body::-webkit-scrollbar-thumb:hover {
+				background: var(--primary-light);
 			}
 
 			.container {
-				max-width: 850px;
+				max-width: 960px;
 				width: 100%;
-				text-align: center;
 				margin: 2rem auto;
-				flex: 1; /* Pushes the footer down */
+				padding: 0 1rem;
+				flex: 1;
+				text-align: center;
 			}
 
 			header {
-				margin-bottom: 2.5rem;
+				margin-bottom: 3rem;
 			}
 
 			h1 {
+				font-size: 3rem;
+				font-weight: 700;
 				color: var(--dark);
-				font-size: 2.8rem;
-				font-weight: 800;
-				background: linear-gradient(90deg, var(--primary), var(--accent));
+				margin-bottom: 0.5rem;
+				letter-spacing: -0.02em;
+				/* REMOVED TEXT SHADOW */
+				background: linear-gradient(90deg, var(--primary), var(--secondary));
 				-webkit-background-clip: text;
 				background-clip: text;
 				color: transparent;
-				<!-- text-shadow: 0px 0px 8px rgba(67, 97, 238, 0.5); -->
-				animation: titleGlow 1.5s ease-in-out infinite alternate, fadeBounce 1s ease-out;
-			}
-
-			/* Glowing Effect */
-			@keyframes titleGlow {
-				0% {
-					text-shadow: 0px 0px 8px rgba(67, 97, 238, 0.5);
-				}
-				100% {
-					text-shadow: 0px 0px 16px rgba(67, 97, 238, 0.8);
-				}
-			}
-
-			/* Smooth Fade-in and Bounce */
-			@keyframes fadeBounce {
-				0% {
-					opacity: 0;
-					transform: translateY(-20px);
-				}
-				50% {
-					opacity: 0.5;
-					transform: translateY(5px);
-				}
-				100% {
-					opacity: 1;
-					transform: translateY(0);
-				}
+				animation: none; /* REMOVED ANIMATION AS PER INSTRUCTION */
 			}
 
 			.subtitle {
+				font-size: 1.125rem;
 				color: var(--text-light);
-				font-size: 1.2rem;
+				max-width: 700px;
+				margin: 0.5rem auto;
 			}
 
 			.app-list {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 1.5rem;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 2rem;
 				width: 100%;
 			}
 
 			.app-card {
-			             background: var(--glass-bg);
-			             backdrop-filter: blur(12px);
-			             border-radius: 14px;
-			             padding: 2rem;
-			             box-shadow: 0 10px 30px rgba(128, 0, 128, 0.1); /* Soft Purple Shadow */
-			             transition: all 0.3s ease-in-out;
-			             text-decoration: none;
-			             color: inherit;
-			             border: 1px solid rgba(255, 255, 255, 0.3);
-			             opacity: 0;
-			             transform: translateY(20px);
-			             animation: cardEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-			         }
+				background: var(--glass-bg);
+				backdrop-filter: blur(10px);
+				border-radius: 12px;
+				padding: 1.75rem;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.045); /* Reduced Box Shadow */
+				transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+				text-decoration: none;
+				color: inherit;
+				border: 1px solid var(--glass-border);
+				position: relative;
+				overflow: hidden;
+			}
 
-			         .app-card:hover {
-			             transform: translateY(-5px);
-			             box-shadow: 0 12px 35px rgba(128, 0, 128, 0.3); /* Darker Purple Shadow on Hover */
-			         }
+			.app-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 4px;
+				background: linear-gradient(90deg, var(--primary), var(--secondary));
+				opacity: 0;
+				transition: opacity 0.2s ease-in-out;
+			}
 
-			.app-card:nth-child(1) {
-				animation-delay: 0.3s;
+			.app-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07); /* Reduced Shadow on Hover */
 			}
-			.app-card:nth-child(2) {
-				animation-delay: 0.4s;
-			}
-			.app-card:nth-child(3) {
-				animation-delay: 0.5s;
-			}
-			.app-card:nth-child(4) {
-				animation-delay: 0.6s;
+
+			.app-card:hover::before {
+				opacity: 1;
 			}
 
 			.app-card h2 {
-				color: var(--primary);
-				margin-bottom: 0.5rem;
+				font-size: 1.35rem;
 				font-weight: 600;
-				font-size: 1.4rem;
+				color: var(--primary);
+				margin-bottom: 0.75rem;
 			}
 
 			.app-card p {
-				color: var(--text-light);
 				font-size: 1rem;
+				color: var(--text-light);
 			}
 
-			/* Footer (Sticky at bottom) */
 			footer {
-				background: var(--dark);
+				background-color: var(--dark);
 				color: var(--light);
 				text-align: center;
-				padding: 1rem;
+				padding: 1.5rem;
 				width: 100%;
-				border-top: 3px solid var(--primary);
+				border-top: 2px solid var(--primary);
+				font-size: 0.9rem;
 			}
 
 			.footer-links {
-				margin-top: 0.5rem;
+				margin-top: 0.75rem;
 			}
 
 			.footer-links a {
-				color: var(--accent);
+				color: var(--secondary);
 				text-decoration: none;
-				margin: 0 12px;
-				transition: color 0.3s;
+				margin: 0 16px;
+				transition: color 0.2s ease-in-out;
 			}
 
 			.footer-links a:hover {
-				color: var(--secondary);
+				color: var(--accent);
 			}
 
-			/* Animations */
-			@keyframes cardEnter {
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			@media (max-width: 600px) {
+			/* Media Queries */
+			@media (max-width: 768px) {
 				h1 {
-					font-size: 2.3rem;
+					font-size: 2.5rem;
+				}
+
+				.subtitle {
+					font-size: 1.05rem;
+				}
+
+				.app-list {
+					grid-template-columns: 1fr;
+				}
+
+				.app-card {
+					padding: 1.5rem;
+				}
+
+				.footer-links a {
+					margin: 0 8px;
 				}
 			}
 		</style>
@@ -210,7 +228,6 @@
 			</div>
 		</div>
 
-		<!-- Footer -->
 		<footer>
 			<p>© <span id="year"></span> Phanidra Mangipudi. All Rights Reserved.</p>
 			<div class="footer-links">
