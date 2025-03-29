@@ -1,12 +1,259 @@
-echo "<!DOCTYPE html>
-<html>
-<head>
-    <title>Docs Page</title>
-</head>
-<body>
-    <h1>Welcome to the Docs GitHub Page!</h1>
-    <p>This is deployed from the <strong>/docs folder</strong>.</p>
-    <a href='/multi-pages-demo/'>Go to Root Page</a> | 
-    <a href='/multi-pages-demo/docs/page3.html'>Go to Third Page</a>
-</body>
-</html>" > docs/index.html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Salesforce Quick Navigator</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+		<style>
+			:root {
+				--primary-color: #0070d2;
+				--secondary-color: #1b96ff;
+				--background-color: #f4f6f9;
+				--text-color: #2d3748;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+				line-height: 1.6;
+				color: var(--text-color);
+				background-color: var(--background-color);
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			.hero {
+				text-align: center;
+				padding: 80px 0;
+				background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+				color: white;
+			}
+
+			.hero h1 {
+				font-size: 3rem;
+				margin-bottom: 20px;
+				font-weight: 700;
+			}
+
+			.hero p {
+				font-size: 1.2rem;
+				max-width: 700px;
+				margin: 0 auto 30px;
+			}
+
+			.cta-button {
+				display: inline-block;
+				background-color: white;
+				color: var(--primary-color);
+				padding: 12px 24px;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+
+			.cta-button:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+			}
+
+			.features {
+				background-color: white;
+				padding: 80px 0;
+			}
+
+			.feature-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 30px;
+			}
+
+			.feature-card {
+				background-color: var(--background-color);
+				padding: 30px;
+				border-radius: 12px;
+				text-align: center;
+				transition: transform 0.3s ease;
+			}
+
+			.feature-card:hover {
+				transform: translateY(-10px);
+			}
+
+			.feature-card i {
+				font-size: 3rem;
+				color: var(--primary-color);
+				margin-bottom: 20px;
+			}
+
+			.screenshots {
+				background-color: white;
+				padding: 80px 0;
+			}
+
+			.screenshot-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 30px;
+			}
+
+			.screenshot-item {
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.screenshot-item:hover {
+				transform: scale(1.05);
+			}
+
+			.screenshot-item img {
+				width: 100%;
+				height: auto;
+			}
+
+			.footer {
+				background-color: var(--text-color);
+				color: white;
+				text-align: center;
+				padding: 40px 0;
+			}
+
+			@media (max-width: 768px) {
+				.hero h1 {
+					font-size: 2rem;
+				}
+			}
+		</style>
+		<!-- Font Awesome for icons (optional) -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	</head>
+	<body>
+		<section class="hero">
+			<div class="container">
+				<h1>Salesforce Quick Navigator</h1>
+				<p>Streamline your Salesforce workflow with lightning-fast navigation and intuitive shortcuts. Boost your productivity like never before.</p>
+				<a
+					href="https://chromewebstore.google.com/detail/salesforce-quick-navigato/heekjcmlmggmcklmmiiljofcgcpnhlme"
+					class="cta-button"
+					target="_blank"
+				>
+					Install Extension
+				</a>
+			</div>
+		</section>
+
+		<section class="overview" style="background-color: white; padding: 80px 0">
+			<div class="container">
+				<h2 style="text-align: center; margin-bottom: 40px">Your Ultimate Salesforce Navigation Companion</h2>
+
+				<div class="overview-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center">
+					<div class="overview-text">
+						<h3 style="color: var(--primary-color); margin-bottom: 20px">🚀 Boost Your Salesforce Productivity</h3>
+						<p style="margin-bottom: 20px">
+							Tired of clicking through multiple menus to access Salesforce configurations? Salesforce Quick Nav is your ultimate productivity
+							companion, designed to streamline your setup navigation with lightning-fast, intuitive commands.
+						</p>
+
+						<div class="command-demo" style="background-color: #f4f6f9; padding: 20px; border-radius: 10px; margin-top: 20px">
+							<h4>Quick Command Examples:</h4>
+							<code style="display: block; background-color: #e9ecef; padding: 10px; border-radius: 5px; margin-top: 10px">
+								<span style="color: var(--primary-color)">contact</span>.fields<br />
+								<span style="color: var(--primary-color)">account</span>.pagelayouts<br />
+								<span style="color: var(--primary-color)">opportunity</span>.validationrules
+							</code>
+						</div>
+					</div>
+
+					<div class="overview-features">
+						<ul style="list-style-type: none; padding: 0">
+							<li style="background-color: #f4f6f9; margin-bottom: 15px; padding: 20px; border-radius: 10px; display: flex; align-items: center">
+								<span style="font-size: 2rem; margin-right: 15px; color: var(--primary-color)">🔍</span>
+								<div>
+									<h4>Lightning-Fast Navigation</h4>
+									<p style="margin-top: 5px; font-size: 0.9rem">Instantly jump to any object configuration with minimal clicks</p>
+								</div>
+							</li>
+							<li style="background-color: #f4f6f9; margin-bottom: 15px; padding: 20px; border-radius: 10px; display: flex; align-items: center">
+								<span style="font-size: 2rem; margin-right: 15px; color: var(--primary-color)">📊</span>
+								<div>
+									<h4>Comprehensive Object Support</h4>
+									<p style="margin-top: 5px; font-size: 0.9rem">Works with standard and custom objects across Salesforce</p>
+								</div>
+							</li>
+							<li style="background-color: #f4f6f9; padding: 20px; border-radius: 10px; display: flex; align-items: center">
+								<span style="font-size: 2rem; margin-right: 15px; color: var(--primary-color)">⚡</span>
+								<div>
+									<h4>Wide Configuration Coverage</h4>
+									<p style="margin-top: 5px; font-size: 0.9rem">Access object details, fields, layouts, record types, and more</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="features">
+			<div class="container">
+				<h2 style="text-align: center; margin-bottom: 50px">Key Features</h2>
+				<div class="feature-grid">
+					<div class="feature-card">
+						<i class="fas fa-bolt"></i>
+						<h3>Instant Navigation</h3>
+						<p>Jump to any Salesforce section with lightning-fast shortcuts</p>
+					</div>
+					<div class="feature-card">
+						<i class="fas fa-cogs"></i>
+						<h3>Customizable</h3>
+						<p>Personalize your navigation experience with custom shortcuts</p>
+					</div>
+					<div class="feature-card">
+						<i class="fas fa-rocket"></i>
+						<h3>Productivity Boost</h3>
+						<p>Save time and reduce clicks with smart navigation tools</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+        <section class="screenshots">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 50px;">Screenshots</h2>
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="screenshot1.png" alt="Extension Screenshot">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="screenshot2.png" alt="Extension Screenshot">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="screenshot3.png" alt="Extension Screenshot">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2023 Salesforce Quick Navigator. All rights reserved.</p>
+				<div style="margin-top: 20px">
+					<a href="https://github.com/yourusername" style="color: white; margin: 0 10px">GitHub</a>
+					<a href="mailto:support@example.com" style="color: white; margin: 0 10px">Support</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
